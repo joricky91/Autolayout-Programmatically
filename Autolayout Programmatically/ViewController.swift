@@ -92,6 +92,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     lazy var videosTitleText: UILabel = {
         let label = UILabel()
         label.text = "Videos"
@@ -140,7 +144,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             videosTitleText.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
             
             tableView.topAnchor.constraint(equalTo: videosTitleText.bottomAnchor, constant: 5),
-            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
+            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
             tableView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.5),
         ])
