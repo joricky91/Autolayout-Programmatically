@@ -33,10 +33,34 @@ class ViewController: UIViewController {
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
+    
+    lazy var movieReleaseDate: UILabel = {
+        let label = UILabel()
+        label.text = "Release Date: 26/08/2016"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var movieRuntime: UILabel = {
+        let label = UILabel()
+        label.text = "Runtime: 106 minutes"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var movieGenre: UILabel = {
+        let label = UILabel()
+        label.text = "Genre: Romance, Animation, Drama"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     func setupViews() {
         view.addSubview(movieTitle)
         view.addSubview(movieBackdrop)
+        view.addSubview(movieReleaseDate)
+        view.addSubview(movieRuntime)
+        view.addSubview(movieGenre)
     }
     
     func setupConstraints() {
@@ -49,7 +73,16 @@ class ViewController: UIViewController {
             movieBackdrop.topAnchor.constraint(equalTo: movieTitle.bottomAnchor, constant: 16),
             movieBackdrop.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
             movieBackdrop.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
-            movieBackdrop.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.28)
+            movieBackdrop.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.28),
+            
+            movieReleaseDate.topAnchor.constraint(equalTo: movieBackdrop.bottomAnchor, constant: 16),
+            movieReleaseDate.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
+            
+            movieRuntime.topAnchor.constraint(equalTo: movieReleaseDate.bottomAnchor, constant: 5),
+            movieRuntime.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
+            
+            movieGenre.topAnchor.constraint(equalTo: movieRuntime.bottomAnchor, constant: 5),
+            movieGenre.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
         ])
     }
 }
